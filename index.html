@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="Complete school management app for Saraswati Gyan Niketan - homework, notes, results, notices, and study materials">
+    <meta name="keywords" content="school app, education, homework, notes, results, notices, study materials">
+    <meta name="author" content="Saraswati Gyan Niketan">
+    <meta name="theme-color" content="#2a5298">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Saraswati App">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Saraswati App">
+    <meta name="msapplication-TileColor" content="#2a5298">
+    <meta name="msapplication-config" content="browserconfig.xml">
+    
+    <title>Saraswati Gyan Niketan - School App</title>
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="icon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#2a5298">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo-section">
+                <div class="school-logo">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="school-info">
+                    <h1>Saraswati Gyan Niketan</h1>
+                    <p>Excellence in Education</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="login-btn" onclick="showLogin()">
+                    <i class="fas fa-user"></i> Login
+                </button>
+                <button class="menu-toggle" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="nav-menu" id="navMenu">
+        <div class="nav-item" onclick="showSection('home')">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </div>
+        <div class="nav-item" onclick="showSection('homework')">
+            <i class="fas fa-book"></i>
+            <span>Homework</span>
+        </div>
+        <div class="nav-item" onclick="showSection('notes')">
+            <i class="fas fa-sticky-note"></i>
+            <span>Notes</span>
+        </div>
+        <div class="nav-item" onclick="showSection('results')">
+            <i class="fas fa-chart-bar"></i>
+            <span>Results</span>
+        </div>
+        <div class="nav-item" onclick="showSection('notices')">
+            <i class="fas fa-bullhorn"></i>
+            <span>Notices</span>
+        </div>
+        <div class="nav-item" onclick="showSection('study-materials')">
+            <i class="fas fa-video"></i>
+            <span>Study Materials</span>
+        </div>
+        <div class="nav-item" onclick="showSection('premium')">
+            <i class="fas fa-crown"></i>
+            <span>Premium Classes</span>
+        </div>
+        <div class="nav-item" onclick="showSection('about')">
+            <i class="fas fa-info-circle"></i>
+            <span>About School</span>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="container">
+                <div class="welcome-banner">
+                    <div class="banner-content">
+                        <h2>Welcome to Digital Learning</h2>
+                        <p>Access homework, notes, results, and premium study materials all in one place</p>
+                    </div>
+                    <div class="banner-image">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                </div>
+
+                <div class="quick-access">
+                    <h3>Quick Access</h3>
+                    <div class="quick-grid">
+                        <div class="quick-card" onclick="showSection('homework')">
+                            <i class="fas fa-book"></i>
+                            <h4>Today's Homework</h4>
+                            <p>Check daily assignments</p>
+                        </div>
+                        <div class="quick-card" onclick="showSection('results')">
+                            <i class="fas fa-chart-bar"></i>
+                            <h4>Latest Results</h4>
+                            <p>View exam scores</p>
+                        </div>
+                        <div class="quick-card" onclick="showSection('notices')">
+                            <i class="fas fa-bullhorn"></i>
+                            <h4>Important Notices</h4>
+                            <p>School announcements</p>
+                        </div>
+                        <div class="quick-card" onclick="showSection('premium')">
+                            <i class="fas fa-crown"></i>
+                            <h4>Premium Classes</h4>
+                            <p>Exclusive content</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="features-overview">
+                    <h3>App Features</h3>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h4>Mobile Friendly</h4>
+                            <p>Optimized for all devices</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-bell"></i>
+                            <h4>Push Notifications</h4>
+                            <p>Never miss important updates</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-download"></i>
+                            <h4>Offline Access</h4>
+                            <p>Download and study offline</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-language"></i>
+                            <h4>Bilingual Support</h4>
+                            <p>English & Hindi languages</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Homework Section -->
+        <section id="homework" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2><i class="fas fa-book"></i> Homework</h2>
+                    <p>Daily assignments and tasks</p>
+                </div>
+
+                <div class="filter-tabs">
+                    <button class="tab-btn active" onclick="filterHomework('all')">All Classes</button>
+                    <button class="tab-btn" onclick="filterHomework('class-2')">Class 2</button>
+                    <button class="tab-btn" onclick="filterHomework('class-3')">Class 3</button>
+                    <button class="tab-btn" onclick="filterHomework('class-4')">Class 4</button>
+                    <button class="tab-btn" onclick="filterHomework('class-5')">Class 5</button>
+                    <button class="tab-btn" onclick="filterHomework('class-6')">Class 6</button>
+                    <button class="tab-btn" onclick="filterHomework('class-7')">Class 7</button>
+                    <button class="tab-btn" onclick="filterHomework('class-8')">Class 8</button>
+                    <button class="tab-btn" onclick="filterHomework('class-9')">Class 9</button>
+                    <button class="tab-btn" onclick="filterHomework('class-10')">Class 10</button>
+                </div>
+
+                <div class="homework-list" id="homeworkList">
+                    <div class="homework-card" data-class="class-5">
+                        <div class="homework-header">
+                            <div class="subject-badge math">Mathematics</div>
+                            <div class="date">Today, Dec 25</div>
+                        </div>
+                        <div class="homework-content">
+                            <h4>Chapter 5: Fractions and Decimals</h4>
+                            <p>Complete exercises 5.1 to 5.3 from textbook. Solve word problems on page 87-89.</p>
+                            <div class="homework-meta">
+                                <span class="teacher"><i class="fas fa-user"></i> Mrs. Sharma</span>
+                                <span class="class-info"><i class="fas fa-users"></i> Class 5-A</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="homework-card" data-class="class-5">
+                        <div class="homework-header">
+                            <div class="subject-badge science">Science</div>
+                            <div class="date">Today, Dec 25</div>
+                        </div>
+                        <div class="homework-content">
+                            <h4>Chapter 8: Light and Shadows</h4>
+                            <p>Draw diagrams showing formation of shadows. Answer questions 1-5 from exercise.</p>
+                            <div class="homework-meta">
+                                <span class="teacher"><i class="fas fa-user"></i> Mr. Kumar</span>
+                                <span class="class-info"><i class="fas fa-users"></i> Class 5-A</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="homework-card" data-class="class-8">
+                        <div class="homework-header">
+                            <div class="subject-badge english">English</div>
+                            <div class="date">Yesterday, Dec 24</div>
+                        </div>
+                        <div class="homework-content">
+                            <h4>Grammar: Active and Passive Voice</h4>
+                            <p>Convert 20 sentences from active to passive voice. Read chapter 12 and write summary.</p>
+                            <div class="homework-meta">
+                                <span class="teacher"><i class="fas fa-user"></i> Ms. Gupta</span>
+                                <span class="class-info"><i class="fas fa-users"></i> Class 8-B</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="homework-card" data-class="class-10">
+                        <div class="homework-header">
+                            <div class="subject-badge math">Mathematics</div>
+                            <div class="date">Yesterday, Dec 24</div>
+                        </div>
+                        <div class="homework-content">
+                            <h4>Quadratic Equations</h4>
+                            <p>Solve all problems from exercise 4.3. Practice factorization method for solving equations.</p>
+                            <div class="homework-meta">
+                                <span class="teacher"><i class="fas fa-user"></i> Mr. Singh</span>
+                                <span class="class-info"><i class="fas fa-users"></i> Class 10-A</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notes Section -->
+        <section id="notes" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2><i class="fas fa-sticky-note"></i> Notes</h2>
+                    <p>Study materials and class notes</p>
+                </div>
+
+                <div class="filter-tabs">
+                    <button class="tab-btn active" onclick="filterNotes('all')">All Subjects</button>
+                    <button class="tab-btn" onclick="filterNotes('math')">Mathematics</button>
+                    <button class="tab-btn" onclick="filterNotes('science')">Science</button>
+                    <button class="tab-btn" onclick="filterNotes('english')">English</button>
+                    <button class="tab-btn" onclick="filterNotes('hindi')">Hindi</button>
+                    <button class="tab-btn" onclick="filterNotes('social')">Social Studies</button>
+                </div>
+
+                <div class="notes-grid" id="notesList">
+                    <div class="note-card" data-subject="math">
+                        <div class="note-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="note-content">
+                            <h4>Algebra Basics</h4>
+                            <p>Complete notes on algebraic expressions and equations</p>
+                            <div class="note-meta">
+                                <span class="subject-tag math">Mathematics</span>
+                                <span class="class-tag">Class 8</span>
+                            </div>
+                            <div class="note-actions">
+                                <button class="btn-view" onclick="viewNote('algebra-basics.pdf')">
+                                    <i class="fas fa-eye"></i> View
+                                </button>
+                                <button class="btn-download" onclick="downloadNote('algebra-basics.pdf')">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="note-card" data-subject="science">
+                        <div class="note-icon">
+                            <i class="fas fa-file-word"></i>
+                        </div>
+                        <div class="note-content">
+                            <h4>Human Body Systems</h4>
+                            <p>Detailed notes on digestive and respiratory systems</p>
+                            <div class="note-meta">
+                                <span class="subject-tag science">Science</span>
+                                <span class="class-tag">Class 7</span>
+                            </div>
+                            <div class="note-actions">
+                                <button class="btn-view" onclick="viewNote('human-body.docx')">
+                                    <i class="fas fa-eye"></i> View
+                                </button>
+                                <button class="btn-download" onclick="downloadNote('human-body.docx')">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="note-card" data-subject="english">
+                        <div class="note-icon">
+                            <i class="fas fa-file-image"></i>
+                        </div>
+                        <div class="note-content">
+                            <h4>Grammar Rules</h4>
+                            <p>Visual guide to English grammar with examples</p>
+                            <div class="note-meta">
+                                <span class="subject-tag english">English</span>
+                                <span class="class-tag">Class 6</span>
+                            </div>
+                            <div class="note-actions">
+                                <button class="btn-view" onclick="viewNote('grammar-rules.jpg')">
+                                    <i class="fas fa-eye"></i> View
+                                </button>
+                                <button class="btn-download" onclick="downloadNote('grammar-rules.jpg')">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="note-card" data-subject="hindi">
+                        <div class="note-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="note-content">
+                            <h4>हिंदी व्याकरण</h4>
+                            <p>संज्ञा, सर्वनाम और विशेषण के नियम</p>
+                            <div class="note-meta">
+                                <span class="subject-tag hindi">Hindi</span>
+                                <span class="class-tag">Class 5</span>
+                            </div>
+                            <div class="note-actions">
+                                <button class="btn-view" onclick="viewNote('hindi-grammar.pdf')">
+                                    <i class="fas fa-eye"></i> View
+                                </button>
+                                <button class="btn-download" onclick="downloadNote('hindi-grammar.pdf')">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section id="results" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2><i class="fas fa-chart-bar"></i> Results</h2>
+                    <p>Check exam results and performance</p>
+                </div>
+
+                <div class="result-search">
+                    <div class="search-form">
+                        <input type="text" id="rollNumber" placeholder="Enter Roll Number" class="form-input">
+                        <button onclick="searchResult()" class="btn-search">
+                            <i class="fas fa-search"></i> Search Result
+                        </button>
+                    </div>
+                </div>
+
+                <div class="result-display" id="resultDisplay" style="display: none;">
+                    <div class="result-card">
+                        <div class="result-header">
+                            <div class="student-info">
+                                <h3 id="studentName">Student Name</h3>
+                                <p id="studentClass">Class & Section</p>
+                                <p id="studentRoll">Roll Number: <span></span></p>
+                            </div>
+                            <div class="result-status" id="resultStatus">
+                                <span class="status-badge pass">PASS</span>
+                            </div>
+                        </div>
+
+                        <div class="result-summary">
+                            <div class="summary-item">
+                                <h4 id="totalMarks">450</h4>
+                                <p>Total Marks</p>
+                            </div>
+                            <div class="summary-item">
+                                <h4 id="obtainedMarks">385</h4>
+                                <p>Obtained Marks</p>
+                            </div>
+                            <div class="summary-item">
+                                <h4 id="percentage">85.5%</h4>
+                                <p>Percentage</p>
+                            </div>
+                            <div class="summary-item">
+                                <h4 id="grade">A</h4>
+                                <p>Grade</p>
+                            </div>
+                        </div>
+
+                        <div class="subject-marks">
+                            <h4>Subject-wise Marks</h4>
+                            <div class="marks-table">
+                                <div class="marks-row header">
+                                    <span>Subject</span>
+                                    <span>Max Marks</span>
+                                    <span>Obtained</span>
+                                    <span>Grade</span>
+                                </div>
+                                <div class="marks-row">
+                                    <span>Mathematics</span>
+                                    <span>100</span>
+                                    <span>85</span>
+                                    <span>A</span>
+                                </div>
+                                <div class="marks-row">
+                                    <span>Science</span>
+                                    <span>100</span>
+                                    <span>78</span>
+                                    <span>B+</span>
+                                </div>
+                                <div class="marks-row">
+                                    <span>English</span>
+                                    <span>100</span>
+                                    <span>92</span>
+                                    <span>A+</span>
+                                </div>
+                                <div class="marks-row">
+                                    <span>Hindi</span>
+                                    <span>100</span>
+                                    <span>88</span>
+                                    <span>A</span>
+                                </div>
+                                <div class="marks-row">
+                                    <span>Social Studies</span>
+                                    <span>50</span>
+                                    <span>42</span>
+                                    <span>A</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notices Section -->
+        <section id="notices" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2><i class="fas fa-bullhorn"></i> Notices & Announcements</h2>
+                    <p>Important school updates and events</p>
+                </div>
+
+                <div class="notices-list">
+                    <div class="notice-card important">
+                        <div class="notice-header">
+                            <div class="notice-type">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <span>Important Notice</span>
+                            </div>
+                            <div class="notice-date">Dec 25, 2024</div>
+                        </div>
+                        <div class="notice-content">
+                            <h4>Winter Break Schedule</h4>
+                            <p>School will remain closed from December 26, 2024 to January 5, 2025 for winter break. Classes will resume on January 6, 2025.</p>
+                            <div class="notice-attachments">
+                                <button class="attachment-btn" onclick="downloadAttachment('winter-schedule.pdf')">
+                                    <i class="fas fa-file-pdf"></i> Winter Schedule.pdf
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="notice-card event">
+                        <div class="notice-header">
+                            <div class="notice-type">
+                                <i class="fas fa-calendar"></i>
+                                <span>Event Notice</span>
+                            </div>
+                            <div class="notice-date">Dec 24, 2024</div>
+                        </div>
+                        <div class="notice-content">
+                            <h4>Annual Sports Day 2025</h4>
+                            <p>Annual Sports Day will be held on January 15, 2025. All students are required to participate. Registration forms available in the office.</p>
+                            <div class="notice-attachments">
+                                <button class="attachment-btn" onclick="downloadAttachment('sports-day-form.pdf')">
+                                    <i class="fas fa-file-pdf"></i> Registration Form.pdf
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="notice-card exam">
+                        <div class="notice-header">
+                            <div class="notice-type">
+                                <i class="fas fa-clipboard-list"></i>
+                                <span>Exam Notice</span>
+                            </div>
+                            <div class="notice-date">Dec 23, 2024</div>
+                        </div>
+                        <div class="notice-content">
+                            <h4>Final Exam Schedule - March 2025</h4>
+                            <p>Final examinations for all classes will commence from March 1, 2025. Detailed time table and syllabus attached.</p>
+                            <div class="notice-attachments">
+                                <button class="attachment-btn" onclick="downloadAttachment('exam-timetable.pdf')">
+                                    <i class="fas fa-file-pdf"></i> Exam Timetable.pdf
+                                </button>
+                                <button class="attachment-btn" onclick="downloadAttachment('syllabus.pdf')">
+                                    <i class="fas fa-file-pdf"></i> Syllabus.pdf
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="notice-card general">
+                        <div class="notice-header">
+                            <div class="notice-type">
+                                <i class="fas fa-info-circle"></i>
+                                <span>General Notice</span>
+                            </div>
+                            <div class="notice-date">Dec 22, 2024</div>
+                        </div>
+                        <div class="notice-content">
+                            <h4>New Library Books Available</h4>
+                            <p>New collection of books has been added to the school library. Students can issue books during library hours (9 AM - 4 PM).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Study Materials Section -->
+        <section id="study-materials" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2><i class="fas fa-video"></i> Online Study Materials & Videos</h2>
+                    <p>Educational videos and learning resources</p>
+                </div>
+
+                <div class="filter-tabs">
+                    <button class="tab-btn active" onclick="filterVideos('all')">All Subjects</button>
+                    <button class="tab-btn" onclick="filterVideos('math')">Mathematics</button>
+                    <button class="tab-btn" onclick="filterVideos('science')">Science</button>
+                    <button class="tab-btn" onclick="filterVideos('english')">English</button>
+                    <button class="tab-btn" onclick="filterVideos('hindi')">Hindi</button>
+                </div>
+
+                <div class="videos-grid" id="videosList">
+                    <div class="video-card" data-subject="math">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Video Thumbnail">
+                            <div class="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="video-duration">15:30</div>
+                        </div>
+                        <div class="video-content">
+                            <h4>Algebra Fundamentals</h4>
+                            <p>Learn the basics of algebraic expressions and equations with practical examples.</p>
+                            <div class="video-meta">
+                                <span class="subject-tag math">Mathematics</span>
+                                <span class="class-tag">Class 8</span>
+                                <span class="views"><i class="fas fa-eye"></i> 1.2K views</span>
+                            </div>
+                            <div class="video-actions">
+                                <button class="btn-watch" onclick="watchVideo('dQw4w9WgXcQ')">
+                                    <i class="fas fa-play"></i> Watch in App
+                                </button>
+                                <button class="btn-youtube" onclick="openYoutube('dQw4w9WgXcQ')">
+                                    <i class="fab fa-youtube"></i> YouTube
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="video-card" data-subject="science">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Video Thumbnail">
+                            <div class="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="video-duration">22:45</div>
+                        </div>
+                        <div class="video-content">
+                            <h4>Photosynthesis Process</h4>
+                            <p>Animated explanation of how plants make their own food through photosynthesis.</p>
+                            <div class="video-meta">
+                                <span class="subject-tag science">Science</span>
+                                <span class="class-tag">Class 6</span>
+                                <span class="views"><i class="fas fa-eye"></i> 856 views</span>
+                            </div>
+                            <div class="video-actions">
+                                <button class="btn-watch" onclick="watchVideo('dQw4w9WgXcQ')">
+                                    <i class="fas fa-play"></i> Watch in App
+                                </button>
+                                <button class="btn-youtube" onclick="openYoutube('dQw4w9WgXcQ')">
+                                    <i class="fab fa-youtube"></i> YouTube
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="video-card" data-subject="english">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Video Thumbnail">
+                            <div class="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="video-duration">18:20</div>
+                        </div>
+                        <div class="video-content">
+                            <h4>English Grammar Basics</h4>
+                            <p>Complete guide to parts of speech, tenses, and sentence formation.</p>
+                            <div class="video-meta">
+                                <span class="subject-tag english">English</span>
+                                <span class="class-tag">Class 7</span>
+                                <span class="views"><i class="fas fa-eye"></i> 2.1K views</span>
+                            </div>
+                            <div class="video-actions">
+                                <button class="btn-watch" onclick="watchVideo('dQw4w9WgXcQ')">
+                                    <i class="fas fa-play"></i> Watch in App
+                                </button>
+                                <button class="btn-youtube" onclick="openYoutube('dQw4w9WgXcQ')">
+                                    <i class="fab fa-youtube"></i> YouTube
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="video-card" data-subject="hindi">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Video Thumbnail">
+                            <div class="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="video-duration">25:10</div>
+                        </div>
+                        <div class="video-content">
+                            <h4>हिंदी कविता और गद्य</h4>
+                            <p>हिंदी साहित्य की प्रमुख कविताओं और गद्य की व्याख्या</p>
+                            <div class="video-meta">
+                                <span class="subject-tag hindi">Hindi</span>
+                                <span class="class-tag">Class 9</span>
+                                <span class="views"><i class="fas fa-eye"></i> 945 views</span>
+                            </div>
+                            <div class="video-actions">
+                                <button class="btn-watch" onclick="watchVideo('dQw4w9WgXcQ')">
+                                    <i class="fas fa-play"></i> Watch in App
+                                </button>
+                                <button class="btn-youtube" onclick="openYoutube('dQw4w9WgXcQ')">
+                                    <i class="fab fa-youtube"></i> YouTube
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Premium Classes Section -->
+        <section id="premium" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2><i class="fas fa-crown"></i> Premium / Paid Classes</h2>
+                    <p>Exclusive content and advanced study packages</p>
+                </div>
+
+                <div class="premium-plans">
+                    <div class="plan-card basic">
+                        <div class="plan-header">
+                            <h3>Basic Plan</h3>
+                            <div class="plan-price">
+                                <span class="currency">₹</span>
+                                <span class="amount">299</span>
+                                <span class="period">/month</span>
+                            </div>
+                        </div>
+                        <div class="plan-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Access to recorded lectures</li>
+                                <li><i class="fas fa-check"></i> Basic study materials</li>
+                                <li><i class="fas fa-check"></i> Monthly test series</li>
+                                <li><i class="fas fa-check"></i> Email support</li>
+                            </ul>
+                        </div>
+                        <button class="plan-btn" onclick="selectPlan('basic')">Choose Basic</button>
+                    </div>
+
+                    <div class="plan-card premium featured">
+                        <div class="plan-badge">Most Popular</div>
+                        <div class="plan-header">
+                            <h3>Premium Plan</h3>
+                            <div class="plan-price">
+                                <span class="currency">₹</span>
+                                <span class="amount">599</span>
+                                <span class="period">/month</span>
+                            </div>
+                        </div>
+                        <div class="plan-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Live interactive classes</li>
+                                <li><i class="fas fa-check"></i> Premium study materials</li>
+                                <li><i class="fas fa-check"></i> Weekly test series</li>
+                                <li><i class="fas fa-check"></i> Doubt clearing sessions</li>
+                                <li><i class="fas fa-check"></i> Priority support</li>
+                                <li><i class="fas fa-check"></i> Performance analytics</li>
+                            </ul>
+                        </div>
+                        <button class="plan-btn" onclick="selectPlan('premium')">Choose Premium</button>
+                    </div>
+
+                    <div class="plan-card advanced">
+                        <div class="plan-header">
+                            <h3>Advanced Plan</h3>
+                            <div class="plan-price">
+                                <span class="currency">₹</span>
+                                <span class="amount">999</span>
+                                <span class="period">/month</span>
+                            </div>
+                        </div>
+                        <div class="plan-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> All Premium features</li>
+                                <li><i class="fas fa-check"></i> One-on-one mentoring</li>
+                                <li><i class="fas fa-check"></i> Advanced test series</li>
+                                <li><i class="fas fa-check"></i> Career guidance</li>
+                                <li><i class="fas fa-check"></i> 24/7 support</li>
+                                <li><i class="fas fa-check"></i> Exam preparation</li>
+                            </ul>
+                        </div>
+                        <button class="plan-btn" onclick="selectPlan('advanced')">Choose Advanced</button>
+                    </div>
+                </div>
+
+                <div class="payment-methods">
+                    <h3>Secure Payment Options</h3>
+                    <div class="payment-options">
+                        <div class="payment-option">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>UPI Payment</span>
+                        </div>
+                        <div class="payment-option">
+                            <i class="fab fa-google-pay"></i>
+                            <span>Google Pay</span>
+                        </div>
+                        <div class="payment-option">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Paytm</span>
+                        </div>
+                        <div class="payment-option">
+                            <i class="fas fa-university"></i>
+                            <span>Net Banking</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About School Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2><i class="fas fa-info-circle"></i> About Saraswati Gyan Niketan</h2>
+                    <p>Excellence in education since 1995</p>
+                </div>
+
+                <div class="about-content">
+                    <div class="school-intro">
+                        <div class="intro-text">
+                            <h3>Our Mission</h3>
+                            <p>Saraswati Gyan Niketan is committed to providing quality education that nurtures young minds and prepares them for a bright future. We believe in holistic development of students through academic excellence, moral values, and extracurricular activities.</p>
+                            
+                            <h3>Our Vision</h3>
+                            <p>To be a leading educational institution that empowers students with knowledge, skills, and values necessary to become responsible global citizens and lifelong learners.</p>
+                        </div>
+                        <div class="intro-image">
+                            <i class="fas fa-school"></i>
+                        </div>
+                    </div>
+
+                    <div class="school-stats">
+                        <div class="stat-item">
+                            <h4>1000+</h4>
+                            <p>Students</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>50+</h4>
+                            <p>Teachers</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>25+</h4>
+                            <p>Years of Excellence</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>95%</h4>
+                            <p>Success Rate</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <div class="contact-grid">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h4>Address</h4>
+                                    <p>123 Education Street, Knowledge City, State - 123456</p>
+                                    <button class="map-btn" onclick="openMap()">
+                                        <i class="fas fa-external-link-alt"></i> View on Google Maps
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <h4>Phone</h4>
+                                    <p>+91 98765 43210</p>
+                                    <p>+91 98765 43211</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h4>Email</h4>
+                                    <p>info@saraswatigyannniketan.edu</p>
+                                    <p>principal@saraswatigyannniketan.edu</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <h4>School Hours</h4>
+                                    <p>Monday - Friday: 8:00 AM - 3:00 PM</p>
+                                    <p>Saturday: 8:00 AM - 12:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Login to Your Account</h3>
+                <span class="close" onclick="closeLogin()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="login-tabs">
+                    <button class="login-tab active" onclick="switchLoginTab('student')">Student</button>
+                    <button class="login-tab" onclick="switchLoginTab('parent')">Parent</button>
+                    <button class="login-tab" onclick="switchLoginTab('teacher')">Teacher</button>
+                </div>
+                
+                <form id="loginForm" class="login-form">
+                    <div class="form-group">
+                        <label for="loginId">Roll Number / Mobile Number</label>
+                        <input type="text" id="loginId" class="form-input" placeholder="Enter your ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" class="form-input" placeholder="Enter your password">
+                    </div>
+                    <button type="submit" class="login-submit">Login</button>
+                </form>
+                
+                <div class="login-footer">
+                    <a href="#" onclick="forgotPassword()">Forgot Password?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Player Modal -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content video-modal">
+            <div class="modal-header">
+                <h3 id="videoTitle">Video Title</h3>
+                <span class="close" onclick="closeVideo()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="video-container">
+                    <iframe id="videoPlayer" src="" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Saraswati Gyan Niketan</h4>
+                    <p>Excellence in Education</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#" onclick="showSection('homework')">Homework</a></li>
+                        <li><a href="#" onclick="showSection('notes')">Notes</a></li>
+                        <li><a href="#" onclick="showSection('results')">Results</a></li>
+                        <li><a href="#" onclick="showSection('notices')">Notices</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                    <p><i class="fas fa-envelope"></i> info@saraswatigyannniketan.edu</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Saraswati Gyan Niketan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bottom Navigation for Mobile -->
+    <div class="bottom-nav">
+        <div class="nav-item" onclick="showSection('home')">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </div>
+        <div class="nav-item" onclick="showSection('homework')">
+            <i class="fas fa-book"></i>
+            <span>Homework</span>
+        </div>
+        <div class="nav-item" onclick="showSection('notes')">
+            <i class="fas fa-sticky-note"></i>
+            <span>Notes</span>
+        </div>
+        <div class="nav-item" onclick="showSection('results')">
+            <i class="fas fa-chart-bar"></i>
+            <span>Results</span>
+        </div>
+        <div class="nav-item" onclick="showSection('notices')">
+            <i class="fas fa-bullhorn"></i>
+            <span>Notices</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
